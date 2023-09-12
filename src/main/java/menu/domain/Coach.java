@@ -1,6 +1,6 @@
 package menu.domain;
 
-import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,10 +12,34 @@ public class Coach {
 	public Coach(String name) {
 		validateName(name);
 		this.name = name;
+		exceptionMenu = new ArrayList<>();
 	}
 
 	public void addExceptionMenu(String name) {
+		// todo 예외 처리 필요 (메뉴에 없는 음식)
+		if (name.isBlank()) return;
+		validateMenu(name);
 		exceptionMenu.add(name);
+	}
+
+	private void validateMenu(String name) {
+
+		validateSize();
+		validateCharactor(name);
+	}
+
+	private void validateSize() {
+		if (exceptionMenu.size() >= 2) {
+			throw new IllegalArgumentException("못먹는 메뉴는 최대 2개입니다.");
+		}
+	}
+
+	private void validateCharactor(String name) {
+		String pattern = "^[\\w가-힣 ]+$";
+		Matcher matcher = Pattern.compile(pattern).matcher(name);
+		if (!matcher.matches()) {
+			throw new IllegalArgumentException("음식 이름이 잘못되었습니다.");
+		}
 	}
 
 
