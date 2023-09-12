@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import static menu.domain.MenuOption.CHARACTER_REGEX;
 
 public class ExceptionMenu {
-	private List<String> store = new ArrayList<>();
+	private final List<String> store = new ArrayList<>();
 
 	public void addExceptionMenu(String name) {
 		if (name.isBlank()) return;

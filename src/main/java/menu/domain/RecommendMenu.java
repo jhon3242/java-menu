@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendMenu {
-	private List<String> store = new ArrayList<>();
+	private final List<String> store = new ArrayList<>();
 
 	public void addRecommendMenu(String name) {
 		validateSameMenu(name);

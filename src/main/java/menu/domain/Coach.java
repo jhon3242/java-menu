@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
 import static menu.domain.MenuOption.CHARACTER_REGEX;
 
 public class Coach {
-	private String name;
-	private ExceptionMenu exceptionMenu;
-	private RecommendMenu recommendMenu;
+	private final String name;
+	private final ExceptionMenu exceptionMenu;
+	private final RecommendMenu recommendMenu;
 
 	public Coach(String name) {
 		validateCoachName(name);

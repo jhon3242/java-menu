@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CoachList {
-	private List<Coach> coachList;
+	private final List<Coach> coachList;
 
 	public CoachList(List<Coach> coachList) {
 		validate(coachList);
