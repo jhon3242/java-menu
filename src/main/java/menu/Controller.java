@@ -2,6 +2,7 @@ package menu;
 
 import menu.domain.Coach;
 import menu.domain.CoachList;
+import menu.domain.Service;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -10,13 +11,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Controller {
+	private Service service = new Service();
+
 	public void run() {
 		OutputView.printStart();
 		CoachList coachList = initCoachList();
-		initExcpetionMenu(coachList);
+		initExceptionMenu(coachList);
+		service.handleRecommendMenu(coachList);
 	}
 
-	private void initExcpetionMenu(CoachList coachList) {
+	private void initExceptionMenu(CoachList coachList) {
 		coachList.findAll()
 				.forEach(this::readExceptionMenu);
 	}
@@ -32,7 +36,6 @@ public class Controller {
 		}
 	}
 
-
 	private CoachList initCoachList() {
 		try {
 			String value = InputView.readNames();
@@ -45,4 +48,5 @@ public class Controller {
 			return initCoachList();
 		}
 	}
+
 }

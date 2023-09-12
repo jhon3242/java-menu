@@ -8,11 +8,13 @@ import java.util.regex.Pattern;
 public class Coach {
 	private String name;
 	private List<String> exceptionMenu;
+	private List<String> recommendMenu;
 
 	public Coach(String name) {
 		validateName(name);
 		this.name = name;
 		exceptionMenu = new ArrayList<>();
+		recommendMenu = new ArrayList<>();
 	}
 
 	public void addExceptionMenu(String name) {
@@ -20,6 +22,17 @@ public class Coach {
 		if (name.isBlank()) return;
 		validateMenu(name);
 		exceptionMenu.add(name);
+	}
+
+	public void addRecommendMenu(String name) {
+		validateSameMenu(name);
+		recommendMenu.add(name);
+	}
+
+	private void validateSameMenu(String name) {
+		if (recommendMenu.contains(name)) {
+			throw new IllegalArgumentException("중복 메뉴 발생");
+		}
 	}
 
 	private void validateMenu(String name) {
