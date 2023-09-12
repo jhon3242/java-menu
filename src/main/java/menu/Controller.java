@@ -13,8 +13,23 @@ public class Controller {
 	public void run() {
 		OutputView.printStart();
 		CoachList coachList = initCoachList();
+		initExcpetionMenu(coachList);
+	}
 
-		InputView.readExceptionMenus(coachList);
+	private void initExcpetionMenu(CoachList coachList) {
+		coachList.findAll()
+				.forEach(this::readExceptionMenu);
+	}
+
+	private void readExceptionMenu(Coach coach) {
+		try {
+			String value = InputView.readExceptionMenu(coach);
+			Arrays.stream(value.split(","))
+					.forEach(coach::addExceptionMenu);
+		} catch (IllegalArgumentException e) {
+			OutputView.printError(e);
+			readExceptionMenu(coach);
+		}
 	}
 
 

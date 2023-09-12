@@ -14,20 +14,19 @@ public class InputView {
 		return value;
 	}
 
-	public static void readExceptionMenus(CoachList coachList) {
-		coachList.findAll()
-				.forEach(InputView::readExceptionMenu);
-	}
+//	public static void readExceptionMenus(CoachList coachList) {
+//		coachList.findAll()
+//				.forEach(InputView::readExceptionMenu);
+//	}
 
-	private static void readExceptionMenu(Coach coach) {
+	public static String readExceptionMenu(Coach coach) {
 		try {
 			System.out.printf("%s(이)가 못 먹는 메뉴를 입력해 주세요.", coach.getName());
-			String value = Console.readLine();
-			Arrays.stream(value.split(","))
-					.forEach(coach::addExceptionMenu);
+			return Console.readLine();
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e);
-			readExceptionMenu(coach);
+			return readExceptionMenu(coach);
 		}
 	}
+
 }
