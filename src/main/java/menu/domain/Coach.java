@@ -1,9 +1,13 @@
 package menu.domain;
 
+import menu.ExceptionMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static menu.domain.MenuOption.CHARACTER_REGEX;
 
 public class Coach {
 	private String name;
@@ -30,7 +34,7 @@ public class Coach {
 
 	private void validateSameMenu(String name) {
 		if (recommendMenu.contains(name)) {
-			throw new IllegalArgumentException("중복 메뉴 발생");
+			throw new IllegalArgumentException(ExceptionMessage.SAME_MENU.getMessage());
 		}
 	}
 
@@ -44,15 +48,14 @@ public class Coach {
 
 	private void validateSize() {
 		if (exceptionMenu.size() >= 2) {
-			throw new IllegalArgumentException("못먹는 메뉴는 최대 2개입니다.");
+			throw new IllegalArgumentException(ExceptionMessage.SIZE_EXCEPTION_MENU.getMessage());
 		}
 	}
 
 	private void validateCharactor(String name) {
-		String pattern = "^[\\w가-힣 ]+$";
-		Matcher matcher = Pattern.compile(pattern).matcher(name);
+		Matcher matcher = Pattern.compile(CHARACTER_REGEX).matcher(name);
 		if (!matcher.matches()) {
-			throw new IllegalArgumentException("음식 이름이 잘못되었습니다.");
+			throw new IllegalArgumentException(ExceptionMessage.ILLEGAL_PATTERN.getMessage());
 		}
 	}
 
@@ -62,7 +65,7 @@ public class Coach {
 				return;
 			}
 		}
-		throw new IllegalArgumentException("메뉴에 없는 이름입니다. : " + name);
+		throw new IllegalArgumentException(ExceptionMessage.MISMATCH_MENU.getMessage() + name);
 	}
 
 	private void validateName(String value) {
@@ -73,21 +76,20 @@ public class Coach {
 
 	private void isLegalLength(String value) {
 		if (value.length() < 2 || value.length() > 4) {
-			throw new IllegalArgumentException("2글자 이상, 4글자 이하이여야 합니다.");
+			throw new IllegalArgumentException(ExceptionMessage.SIZE_COACH_NAME.getMessage());
 		}
 	}
 
 	private void isBlank(String value) {
 		if (value.isBlank()) {
-			throw new IllegalArgumentException("빈 값은 입력 될 수 없습니다.");
+			throw new IllegalArgumentException(ExceptionMessage.BLANK.getMessage());
 		}
 	}
 
 	private void isLegalCharactor(String value) {
-		String pattern = "^[\\w가-힣]+$";
-		Matcher matcher = Pattern.compile(pattern).matcher(value);
+		Matcher matcher = Pattern.compile(CHARACTER_REGEX).matcher(value);
 		if (!matcher.matches()) {
-			throw new IllegalArgumentException("허용되지 않은 코치 이름입니다. : " + value);
+			throw new IllegalArgumentException(ExceptionMessage.ILLEGAL_PATTERN.getMessage() + value);
 		}
 	}
 

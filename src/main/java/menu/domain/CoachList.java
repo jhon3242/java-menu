@@ -1,5 +1,7 @@
 package menu.domain;
 
+import menu.ExceptionMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +14,8 @@ public class CoachList {
 	}
 
 	private void validate(List<Coach> coachList) {
-		if (coachList.size() < 2 || coachList.size() > 5) {
-			throw new IllegalArgumentException("코치는 최소 2명, 최대 5명이여야 합니다.");
+		if (coachList.size() < MenuOption.COACH_LIST_MIN_SIZE || coachList.size() > MenuOption.COACH_LIST_MAX_SIZE) {
+			throw new IllegalArgumentException(ExceptionMessage.SIZE_COACH_LIST.getMessage());
 		}
 	}
 

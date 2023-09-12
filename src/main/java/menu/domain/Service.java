@@ -22,7 +22,4 @@ public class Service {
 			addRecommendMenu(menus, coach);
 		}
 	}
-
-
-
 }

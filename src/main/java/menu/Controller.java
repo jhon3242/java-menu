@@ -3,6 +3,7 @@ package menu;
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.domain.Coach;
 import menu.domain.CoachList;
+import menu.domain.MenuOption;
 import menu.domain.Service;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static menu.domain.MenuOption.DELIMITER;
 
 public class Controller {
 	private final Service service = new Service();
@@ -27,7 +30,7 @@ public class Controller {
 	private CoachList initCoachList() {
 		try {
 			String value = InputView.readNames();
-			List<Coach> coaches = Arrays.stream(value.split(","))
+			List<Coach> coaches = Arrays.stream(value.split(DELIMITER))
 					.map(Coach::new)
 					.collect(Collectors.toList());
 			return new CoachList(coaches);
@@ -45,7 +48,7 @@ public class Controller {
 	private void readExceptionMenu(Coach coach) {
 		try {
 			String value = InputView.readExceptionMenu(coach);
-			Arrays.stream(value.split(","))
+			Arrays.stream(value.split(DELIMITER))
 					.forEach(coach::addExceptionMenu);
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e);
@@ -56,17 +59,17 @@ public class Controller {
 	private List<Integer> getCategoryOrder() {
 		List<Integer> categoryOrder = new ArrayList<>();
 		while (categoryOrder.size() < 5) {
-			int legalNumber = getLegalNumber(categoryOrder);
+			int legalNumber = getLegalCategoryNumber(categoryOrder);
 			categoryOrder.add(legalNumber);
 		}
 		return categoryOrder;
 	}
 
-	private int getLegalNumber(List<Integer> categoryOrder) {
-		int pickNumber = Randoms.pickNumberInRange(1, 5);
+	private int getLegalCategoryNumber(List<Integer> categoryOrder) {
+		int pickNumber = Randoms.pickNumberInRange(MenuOption.CATEGORY_MIN_NUMBER, MenuOption.CATEGORY_MAX_NUMBER);
 		int count = (int) categoryOrder.stream().filter(num -> num == pickNumber).count();
-		if (count >= 2) {
-			return getLegalNumber(categoryOrder);
+		if (count >= MenuOption.CATEGORY_MAX_DUPLICATION) {
+			return getLegalCategoryNumber(categoryOrder);
 		}
 		return pickNumber;
 	}

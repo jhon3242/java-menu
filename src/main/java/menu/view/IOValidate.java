@@ -1,5 +1,7 @@
 package menu.view;
 
+import menu.ExceptionMessage;
+
 public class IOValidate {
 
 	public static void validateString(String value) {
@@ -8,7 +10,7 @@ public class IOValidate {
 
 	private static void isBlank(String value) {
 		if (value.isBlank()) {
-			throw new IllegalStateException("빈 값을 입력할 수 없습니다.");
+			throw new IllegalStateException(ExceptionMessage.BLANK.getMessage());
 		}
 	}
 }
