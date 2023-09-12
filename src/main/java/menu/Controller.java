@@ -13,9 +13,11 @@ public class Controller {
 	public void run() {
 		OutputView.printStart();
 		CoachList coachList = initCoachList();
+
+		InputView.readExceptionMenus(coachList);
 	}
 
-	// todo : 일급 컬랙션으로 리펙터링
+
 	private CoachList initCoachList() {
 		try {
 			String value = InputView.readNames();

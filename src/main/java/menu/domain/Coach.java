@@ -1,17 +1,25 @@
 package menu.domain;
 
+import java.awt.*;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Coach {
 	private String name;
+	private List<String> exceptionMenu;
 
 	public Coach(String name) {
-		validate(name);
+		validateName(name);
 		this.name = name;
 	}
 
-	private void validate(String value) {
+	public void addExceptionMenu(String name) {
+		exceptionMenu.add(name);
+	}
+
+
+	private void validateName(String value) {
 		isBlank(value);
 		isLegalCharactor(value);
 		isLegalLength(value);
@@ -35,5 +43,9 @@ public class Coach {
 		if (!matcher.matches()) {
 			throw new IllegalArgumentException("허용되지 않은 코치 이름입니다. : " + value);
 		}
+	}
+
+	public String getName() {
+		return name;
 	}
 }
