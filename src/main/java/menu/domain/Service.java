@@ -11,7 +11,6 @@ public class Service {
 				addRecommendMenu(menus, coach);
 			});
 		});
-
 	}
 
 	private void addRecommendMenu(Menus menus, Coach coach) {

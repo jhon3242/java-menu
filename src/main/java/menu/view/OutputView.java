@@ -18,20 +18,20 @@ public class OutputView {
 		System.out.println("메뉴 추천 결과입니다.");
 		System.out.println("[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]");
 		printCategory(categoryOrder);
-		printRecommandMenu(coachList);
+		printRecommendMenu(coachList);
 		System.out.println();
 		System.out.println("추천을 완료했습니다.");
 	}
 
-	private static void printRecommandMenu(CoachList coachList) {
+	private static void printRecommendMenu(CoachList coachList) {
 		coachList.findAll().forEach(coach -> {
 			System.out.printf("[ %s | %s | %s | %s | %s | %s ]\n",
 					coach.getName(),
-					coach.getMenu(0),
-					coach.getMenu(1),
-					coach.getMenu(2),
-					coach.getMenu(3),
-					coach.getMenu(4)
+					coach.getMenuByIdx(0),
+					coach.getMenuByIdx(1),
+					coach.getMenuByIdx(2),
+					coach.getMenuByIdx(3),
+					coach.getMenuByIdx(4)
 					);
 		});
 	}

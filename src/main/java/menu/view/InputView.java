@@ -2,9 +2,6 @@ package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import menu.domain.Coach;
-import menu.domain.CoachList;
-
-import java.util.Arrays;
 
 public class InputView {
 	public static String readNames() {
@@ -13,11 +10,6 @@ public class InputView {
 		IOValidate.validateString(value);
 		return value;
 	}
-
-//	public static void readExceptionMenus(CoachList coachList) {
-//		coachList.findAll()
-//				.forEach(InputView::readExceptionMenu);
-//	}
 
 	public static String readExceptionMenu(Coach coach) {
 		try {
@@ -28,5 +20,4 @@ public class InputView {
 			return readExceptionMenu(coach);
 		}
 	}
-
 }
