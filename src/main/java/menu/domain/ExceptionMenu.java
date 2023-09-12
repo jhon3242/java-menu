@@ -15,6 +15,7 @@ public class ExceptionMenu {
 	public void addExceptionMenu(String name) {
 		if (name.isBlank()) return;
 		validateExceptionMenu(name);
+		store.add(name);
 	}
 
 	private void validateExceptionMenu(String name) {
@@ -24,7 +25,7 @@ public class ExceptionMenu {
 	}
 
 	private void validateSize() {
-		if (store.size() >= 2) {
+		if (store.size() >= MenuOption.EXCEPTION_MENU_MAX_SIZE) {
 			throw new IllegalArgumentException(ExceptionMessage.SIZE_EXCEPTION_MENU.getMessage());
 		}
 	}
