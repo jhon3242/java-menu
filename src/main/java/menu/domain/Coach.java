@@ -85,4 +85,8 @@ public class Coach {
 	public String getName() {
 		return name;
 	}
+
+	public String getMenu(int idx) {
+		return recommendMenu.get(idx);
+	}
 }

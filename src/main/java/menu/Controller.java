@@ -1,11 +1,13 @@
 package menu;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import menu.domain.Coach;
 import menu.domain.CoachList;
 import menu.domain.Service;
 import menu.view.InputView;
 import menu.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +19,9 @@ public class Controller {
 		OutputView.printStart();
 		CoachList coachList = initCoachList();
 		initExceptionMenu(coachList);
-		service.handleRecommendMenu(coachList);
+		List<Integer> categoryOrder = getCategoryOrder();
+		service.handleRecommendMenu(categoryOrder, coachList);
+		OutputView.printResult(categoryOrder, coachList);
 	}
 
 	private void initExceptionMenu(CoachList coachList) {
@@ -47,6 +51,24 @@ public class Controller {
 			OutputView.printError(e);
 			return initCoachList();
 		}
+	}
+
+	private List<Integer> getCategoryOrder() {
+		List<Integer> categoryOrder = new ArrayList<>();
+		while (categoryOrder.size() < 5) {
+			int legalNumber = getLegalNumber(categoryOrder);
+			categoryOrder.add(legalNumber);
+		}
+		return categoryOrder;
+	}
+
+	private int getLegalNumber(List<Integer> categoryOrder) {
+		int pickNumber = Randoms.pickNumberInRange(1, 5);
+		int count = (int) categoryOrder.stream().filter(num -> num == pickNumber).count();
+		if (count >= 2) {
+			return getLegalNumber(categoryOrder);
+		}
+		return pickNumber;
 	}
 
 }
