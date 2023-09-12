@@ -33,6 +33,10 @@ public enum Menus {
 		return Randoms.shuffle(menuList).get(0);
 	}
 
+	public boolean containMenu(String name) {
+		return menuList.contains(name);
+	}
+
 	@Override
 	public String toString() {
 		return this.name;

@@ -18,9 +18,8 @@ public class Coach {
 	}
 
 	public void addExceptionMenu(String name) {
-		// todo 예외 처리 필요 (메뉴에 없는 음식)
 		if (name.isBlank()) return;
-		validateMenu(name);
+		validateExceptionMenu(name);
 		exceptionMenu.add(name);
 	}
 
@@ -35,11 +34,13 @@ public class Coach {
 		}
 	}
 
-	private void validateMenu(String name) {
-
+	private void validateExceptionMenu(String name) {
 		validateSize();
 		validateCharactor(name);
+		validateContainMenu(name);
 	}
+
+
 
 	private void validateSize() {
 		if (exceptionMenu.size() >= 2) {
@@ -55,6 +56,14 @@ public class Coach {
 		}
 	}
 
+	private void validateContainMenu(String name) {
+		for (Menus menu : Menus.values()) {
+			if (menu.containMenu(name)) {
+				return;
+			}
+		}
+		throw new IllegalArgumentException("메뉴에 없는 이름입니다. : " + name);
+	}
 
 	private void validateName(String value) {
 		isBlank(value);

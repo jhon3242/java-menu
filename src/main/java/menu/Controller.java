@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Controller {
-	private Service service = new Service();
+	private final Service service = new Service();
 
 	public void run() {
 		OutputView.printStart();
@@ -22,6 +22,19 @@ public class Controller {
 		List<Integer> categoryOrder = getCategoryOrder();
 		service.handleRecommendMenu(categoryOrder, coachList);
 		OutputView.printResult(categoryOrder, coachList);
+	}
+
+	private CoachList initCoachList() {
+		try {
+			String value = InputView.readNames();
+			List<Coach> coaches = Arrays.stream(value.split(","))
+					.map(Coach::new)
+					.collect(Collectors.toList());
+			return new CoachList(coaches);
+		} catch (IllegalArgumentException e) {
+			OutputView.printError(e);
+			return initCoachList();
+		}
 	}
 
 	private void initExceptionMenu(CoachList coachList) {
@@ -37,19 +50,6 @@ public class Controller {
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e);
 			readExceptionMenu(coach);
-		}
-	}
-
-	private CoachList initCoachList() {
-		try {
-			String value = InputView.readNames();
-			List<Coach> coaches = Arrays.stream(value.split(","))
-					.map(Coach::new)
-					.collect(Collectors.toList());
-			return new CoachList(coaches);
-		} catch (IllegalArgumentException e) {
-			OutputView.printError(e);
-			return initCoachList();
 		}
 	}
 
