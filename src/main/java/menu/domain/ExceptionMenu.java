@@ -45,4 +45,8 @@ public class ExceptionMenu {
 		}
 		throw new IllegalArgumentException(ExceptionMessage.MISMATCH_MENU.getMessage() + name);
 	}
+
+	public void clearStore() {
+		store.clear();
+	}
 }

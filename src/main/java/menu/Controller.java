@@ -52,6 +52,7 @@ public class Controller {
 					.forEach(coach::addExceptionMenu);
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e);
+			coach.clearExceptionMenu();
 			readExceptionMenu(coach);
 		}
 	}

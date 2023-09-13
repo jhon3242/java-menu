@@ -27,6 +27,10 @@ public class Coach {
 		recommendMenu.addRecommendMenu(name);
 	}
 
+	public void clearExceptionMenu() {
+		exceptionMenu.clearStore();
+	}
+
 	private void validateCoachName(String value) {
 		isBlank(value);
 		isLegalCharacter(value);
