@@ -59,7 +59,7 @@ public class Controller {
 
 	private List<Integer> getCategoryOrder() {
 		List<Integer> categoryOrder = new ArrayList<>();
-		while (categoryOrder.size() < 5) {
+		while (categoryOrder.size() < MenuOption.CATEGORY_SIZE) {
 			int legalNumber = getLegalCategoryNumber(categoryOrder);
 			categoryOrder.add(legalNumber);
 		}
