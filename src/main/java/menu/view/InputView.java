@@ -1,7 +1,7 @@
 package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import menu.domain.Coach;
+import menu.domain.coach.Coach;
 
 public class InputView {
 	public static String readNames() {

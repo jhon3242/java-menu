@@ -1,6 +1,7 @@
-package menu.domain;
+package menu.domain.coach;
 
 import menu.ExceptionMessage;
+import menu.domain.menu.MenuOption;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package menu.view;
 
-import menu.domain.CoachList;
-import menu.domain.Menus;
+import menu.domain.coach.CoachList;
+import menu.domain.menu.Menus;
 
 import java.util.List;
 

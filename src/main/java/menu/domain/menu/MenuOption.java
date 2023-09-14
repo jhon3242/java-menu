@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.menu;
 
 public class MenuOption {
 	public static final int CATEGORY_SIZE = 5;

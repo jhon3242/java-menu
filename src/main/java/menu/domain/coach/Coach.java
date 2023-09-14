@@ -1,11 +1,13 @@
-package menu.domain;
+package menu.domain.coach;
 
 import menu.ExceptionMessage;
+import menu.domain.menu.ExceptionMenu;
+import menu.domain.menu.RecommendMenu;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static menu.domain.MenuOption.CHARACTER_REGEX;
+import static menu.domain.menu.MenuOption.CHARACTER_REGEX;
 
 public class Coach {
 	private final String name;

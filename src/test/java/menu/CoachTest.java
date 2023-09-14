@@ -1,9 +1,8 @@
 package menu;
 
-import menu.domain.Coach;
-import menu.domain.CoachList;
+import menu.domain.coach.Coach;
+import menu.domain.coach.CoachList;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

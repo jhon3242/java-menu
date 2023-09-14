@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.menu;
 
 import menu.ExceptionMessage;
 

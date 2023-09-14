@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.menu;
 
 import menu.ExceptionMessage;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static menu.domain.MenuOption.CHARACTER_REGEX;
+import static menu.domain.menu.MenuOption.CHARACTER_REGEX;
 
 public class ExceptionMenu {
 	private final List<String> store = new ArrayList<>();

@@ -1,9 +1,9 @@
 package menu;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import menu.domain.Coach;
-import menu.domain.CoachList;
-import menu.domain.MenuOption;
+import menu.domain.coach.Coach;
+import menu.domain.coach.CoachList;
+import menu.domain.menu.MenuOption;
 import menu.domain.Service;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static menu.domain.MenuOption.DELIMITER;
+import static menu.domain.menu.MenuOption.DELIMITER;
 
 public class Controller {
 	private final Service service = new Service();

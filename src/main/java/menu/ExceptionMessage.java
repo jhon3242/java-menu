@@ -1,6 +1,6 @@
 package menu;
 
-import menu.domain.MenuOption;
+import menu.domain.menu.MenuOption;
 
 public enum ExceptionMessage {
 	SAME_MENU("중복된 메뉴입니다."),

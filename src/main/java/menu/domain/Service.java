@@ -1,5 +1,9 @@
 package menu.domain;
 
+import menu.domain.coach.Coach;
+import menu.domain.coach.CoachList;
+import menu.domain.menu.Menus;
+
 import java.util.List;
 
 public class Service {
