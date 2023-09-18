@@ -68,8 +68,8 @@ public class Controller {
 
 	private int getLegalCategoryNumber(List<Integer> categoryOrder) {
 		int pickNumber = Randoms.pickNumberInRange(MenuOption.CATEGORY_MIN_NUMBER, MenuOption.CATEGORY_MAX_NUMBER);
-		int count = (int) categoryOrder.stream().filter(num -> num == pickNumber).count();
-		if (count >= MenuOption.CATEGORY_MAX_DUPLICATION) {
+		int sameCount = (int) categoryOrder.stream().filter(num -> num == pickNumber).count();
+		if (sameCount >= MenuOption.CATEGORY_MAX_DUPLICATION) {
 			return getLegalCategoryNumber(categoryOrder);
 		}
 		return pickNumber;

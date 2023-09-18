@@ -1,11 +1,12 @@
 package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import menu.Message;
 import menu.domain.coach.Coach;
 
 public class InputView {
 	public static String readNames() {
-		System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
+		System.out.println(Message.READ_COACH_NAME);
 		String value = Console.readLine();
 		IOValidate.validateString(value);
 		return value;
@@ -13,7 +14,7 @@ public class InputView {
 
 	public static String readExceptionMenu(Coach coach) {
 		try {
-			System.out.printf("%s(이)가 못 먹는 메뉴를 입력해 주세요.\n", coach.getName());
+			System.out.printf(Message.READ_EXCEPTION_MENU.toString(), coach.getName());
 			return Console.readLine();
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e);

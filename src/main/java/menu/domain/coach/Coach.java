@@ -7,6 +7,8 @@ import menu.domain.menu.RecommendMenu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static menu.domain.coach.CoachOption.COACH_NAME_MAX_SIZE;
+import static menu.domain.coach.CoachOption.COACH_NAME_MIN_SIZE;
 import static menu.domain.menu.MenuOption.CHARACTER_REGEX;
 
 public class Coach {
@@ -40,7 +42,7 @@ public class Coach {
 	}
 
 	private void isLegalLength(String value) {
-		if (value.length() < 2 || value.length() > 4) {
+		if (value.length() < COACH_NAME_MIN_SIZE || value.length() > COACH_NAME_MAX_SIZE) {
 			throw new IllegalArgumentException(ExceptionMessage.SIZE_COACH_NAME.getMessage());
 		}
 	}

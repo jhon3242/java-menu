@@ -1,7 +1,6 @@
 package menu.domain.coach;
 
 import menu.ExceptionMessage;
-import menu.domain.menu.MenuOption;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +14,10 @@ public class CoachList {
 	}
 
 	private void validate(List<Coach> coachList) {
-		if (coachList.size() < MenuOption.COACH_LIST_MIN_SIZE) {
+		if (coachList.size() < CoachOption.COACH_LIST_MIN_SIZE) {
 			throw new IllegalArgumentException(ExceptionMessage.SIZE_COACH_LIST_MIN.getMessage());
 		}
-		if (coachList.size() > MenuOption.COACH_LIST_MAX_SIZE) {
+		if (coachList.size() > CoachOption.COACH_LIST_MAX_SIZE) {
 			throw new IllegalArgumentException(ExceptionMessage.SIZE_COACH_LIST_MAX.getMessage());
 		}
 	}
