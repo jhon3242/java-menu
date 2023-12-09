@@ -17,7 +17,7 @@ class MenuServiceTest {
 
 	@BeforeEach()
 	void setUp() {
-		menuService = new MenuService(MenuRepository.init());
+		menuService = new MenuService(MenuRepository.init(), new CategoryRepository(new ArrayList<>()));
 	}
 
 	@DisplayName("카테고리에 맞는 메뉴를 추천한다.")
