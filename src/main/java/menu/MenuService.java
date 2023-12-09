@@ -10,9 +10,9 @@ public class MenuService {
 	public String recommendMenu(Coach coach, Category category) {
 		String randomMenu = menuRepository.getRandomMenuByCategory(category);
 		if (coach.canEat(randomMenu)) {
+			coach.addNewAteMenu(randomMenu);
 			return randomMenu;
 		}
-		coach.addNewAteMenu(randomMenu);
 		return recommendMenu(coach, category);
 	}
 }
