@@ -1,6 +1,6 @@
 package menu;
 
-public enum MenuCategory {
+public enum Category {
 	JAPANESE("일식", 1),
 	CHINESE("중식", 2),
 	KOREAN("중식", 3),
@@ -11,7 +11,7 @@ public enum MenuCategory {
 	private final String name;
 	private final int index;
 
-	MenuCategory(String name, int index) {
+	Category(String name, int index) {
 		this.name = name;
 		this.index = index;
 	}
