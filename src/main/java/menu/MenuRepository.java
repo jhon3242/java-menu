@@ -29,4 +29,10 @@ public class MenuRepository {
 		List<String> shuffle = Randoms.shuffle(newMenuList);
 		return shuffle.get(0);
 	}
+
+	public boolean isValidMenu(String menu) {
+		return menus.values()
+				.stream()
+				.anyMatch(list -> list.contains(menu));
+	}
 }

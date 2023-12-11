@@ -41,6 +41,14 @@ public class Coach {
 		alreadyAteMenus.add(menu);
 	}
 
+	public void addNewExceptionMenu(String menu) {
+
+	}
+
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public String toString() {
 		return "Coach{" +

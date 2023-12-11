@@ -1,8 +1,11 @@
 package menu;
 
+import menu.message.ExceptionMessage;
+
 public class MenuService {
 	private final MenuRepository menuRepository;
 	private final CategoryRepository categoryRepository;
+	private CoachList coachList;
 
 	public MenuService(MenuRepository menuRepository, CategoryRepository categoryRepository) {
 		this.menuRepository = menuRepository;
@@ -25,5 +28,16 @@ public class MenuService {
 				categoryRepository.addCategoryToList(randomCategory);
 			}
 		}
+	}
+
+	public void setCoachList(CoachList coachList) {
+		coachList = coachList;
+	}
+
+	public void isValidMenu(String exceptionMenu) {
+		if (menuRepository.isValidMenu(exceptionMenu)) {
+			return;
+		}
+		throw new IllegalArgumentException(ExceptionMessage.MENU);
 	}
 }

@@ -31,6 +31,10 @@ public class CoachList {
 		return new CoachList(coaches);
 	}
 
+	public List<Coach> getCoachList() {
+		return new ArrayList<>(coachList);
+	}
+
 	@Override
 	public String toString() {
 		return "CoachList{" +
