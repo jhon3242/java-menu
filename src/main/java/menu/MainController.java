@@ -12,7 +12,7 @@ public class MainController {
         Coaches coaches = initCoaches();
 
         // 못먹는 메뉴 입력
-
+        coaches.applyExceptionMenuToEach(MainController::initExceptionMenu);
 
         // 추천 결과
     }

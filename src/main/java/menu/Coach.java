@@ -40,6 +40,10 @@ public class Coach {
                 !ateMenus.contains(menu);
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Coach{" +

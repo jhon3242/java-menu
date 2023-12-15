@@ -1,6 +1,7 @@
 package menu;
 
 import java.util.List;
+import java.util.function.Function;
 import menu.message.ExceptionMessage;
 
 public class Coaches {
@@ -23,6 +24,13 @@ public class Coaches {
         if (coaches.size() > MAX_SIZE) {
             throw new IllegalArgumentException(ExceptionMessage.COACHE_MAX_SIZE);
         }
+    }
+
+    public <T, R> void applyExceptionMenuToEach(Function<T, R> method) {
+        coaches.forEach(coach -> {
+            R result = method.apply((T) coach);
+            coach.addExceptionMenu((String) result);
+        });
     }
 
     @Override
