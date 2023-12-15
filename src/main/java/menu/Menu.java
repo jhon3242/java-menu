@@ -22,6 +22,7 @@ public enum Menu {
         this.menus = menus;
     }
 
+    // 못먹는 메뉴인 경우 이전 리스트에서 다시 섞어야해서 여기서 검증
     public static String getRandomMenu(Coach coach, Category category) {
         Menu pick = findByCategory(category);
         List<String> pickMenus = new ArrayList<>(pick.menus);
@@ -38,7 +39,7 @@ public enum Menu {
         return Arrays.stream(values())
                 .filter(menu -> menu.category == category)
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_CATEGORY));
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.CATEGORY_NOT_EXIST));
     }
 
 }

@@ -24,6 +24,6 @@ public enum Category {
         return Arrays.stream(Category.values())
                 .filter(category -> category.index == pick)
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_CATEGORY));
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.CATEGORY_NOT_EXIST));
     }
 }
