@@ -39,4 +39,13 @@ public class Coach {
         return !exceptionMenus.contains(menu) &&
                 !ateMenus.contains(menu);
     }
+
+    @Override
+    public String toString() {
+        return "Coach{" +
+                "name='" + name + '\'' +
+                ", exceptionMenus=" + exceptionMenus +
+                ", ateMenus=" + ateMenus +
+                '}';
+    }
 }

@@ -4,7 +4,7 @@ import menu.message.ExceptionMessage;
 import menu.message.ViewMessage;
 
 public class OutputView {
-    public static void printMessage(ViewMessage message) {
+    public static void printMessage(String message) {
         System.out.println(message);
     }
 

@@ -13,9 +13,9 @@ class CoachsTest {
     @DisplayName("코치 리스트에 대한 예외 발생하지 않는 테스트")
     @ParameterizedTest
     @MethodSource("coachInitSuccessProvider")
-    void coachInitSuccess(List<Coachs> value) {
+    void coachInitSuccess(List<Coach> value) {
         Assertions.assertThatNoException().isThrownBy(() -> {
-            new Coachs(value);
+            new Coaches(value);
         });
 
     }
@@ -31,8 +31,8 @@ class CoachsTest {
     @DisplayName("코치 리스트에 대한 예외 발생 테스트")
     @ParameterizedTest
     @MethodSource("coachInitFailProvider")
-    void coachInitFail(List<Coachs> value) {
-        Assertions.assertThatThrownBy(() -> new Coachs(value))
+    void coachInitFail(List<Coach> value) {
+        Assertions.assertThatThrownBy(() -> new Coaches(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
