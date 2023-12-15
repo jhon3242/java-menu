@@ -1,4 +1,4 @@
-package menu;
+package menu.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,6 @@ public class Coach {
         }
     }
 
-    // TODO 이전에 존재하는 메뉴인지 검증 필요
     public void addExceptionMenu(String menu) {
         if (exceptionMenus.size() > EXCEPTION_MENU_MAX_SIZE) {
             throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_MENU_MAX_SIZE);
@@ -34,7 +33,6 @@ public class Coach {
         exceptionMenus.add(menu);
     }
 
-    // TODO 이전에 존재하는 메뉴인지 검증 필요
     public void addAteMenu(String menu) {
         recommendMenus.add(menu);
     }

@@ -1,16 +1,17 @@
-package menu;
+package menu.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import menu.message.ExceptionMessage;
 
 public class Coaches {
+
     public static final int MIN_SIZE = 2;
     public static final int MAX_SIZE = 5;
     public static final int MAX_RECOMMEND_COUNT = 5;
     public static final int MAX_SAME_CATEGORY_COUNT = 2;
+
     private final List<Coach> coaches;
     private final List<Category> recommendCategories;
 
@@ -42,13 +43,6 @@ public class Coaches {
             coach.clearExceptionMenus(); // 이전 단계에서 에러가 발생했을수도 있어서 초기화
             menus.forEach(coach::addExceptionMenu);
         });
-    }
-
-    @Override
-    public String toString() {
-        return "Coaches{" +
-                "coaches=" + coaches +
-                '}';
     }
 
     public boolean needRecommend() {

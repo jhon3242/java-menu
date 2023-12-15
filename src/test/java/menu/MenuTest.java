@@ -1,5 +1,8 @@
 package menu;
 
+import menu.domain.Category;
+import menu.domain.Coach;
+import menu.domain.Menu;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;

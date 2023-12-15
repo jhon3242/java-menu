@@ -2,6 +2,8 @@ package menu;
 
 import java.util.List;
 import java.util.stream.Stream;
+import menu.domain.Coach;
+import menu.domain.Coaches;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

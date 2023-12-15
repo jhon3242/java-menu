@@ -3,9 +3,8 @@ package menu.view;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import menu.Category;
-import menu.Coaches;
-import menu.message.ExceptionMessage;
+import menu.domain.Category;
+import menu.domain.Coaches;
 import menu.message.ViewMessage;
 
 public class OutputView {
@@ -23,10 +22,10 @@ public class OutputView {
 
     public static void printCategory(Coaches coaches) {
         List<String> categoryView = new ArrayList<>(List.of("카테고리"));
-        List<String> categoryies = coaches.getRecommendCategories().stream()
+        List<String> categories = coaches.getRecommendCategories().stream()
                 .map(Category::getName)
                 .collect(Collectors.toList());
-        categoryView.addAll(categoryies);
+        categoryView.addAll(categories);
         OutputView.printList(categoryView);
     }
 
