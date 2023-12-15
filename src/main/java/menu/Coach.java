@@ -5,6 +5,7 @@ import java.util.List;
 import menu.message.ExceptionMessage;
 
 public class Coach {
+    public static final int EXCEPTION_MENU_MAX_SIZE = 2;
     private final String name;
     private final List<String> exceptionMenus;
     private final List<String> ateMenus;
@@ -27,6 +28,9 @@ public class Coach {
 
     // TODO 이전에 존재하는 메뉴인지 검증 필요
     public void addExceptionMenu(String menu) {
+        if (exceptionMenus.size() > EXCEPTION_MENU_MAX_SIZE) {
+            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_MENU_MAX_SIZE);
+        }
         exceptionMenus.add(menu);
     }
 
@@ -38,6 +42,10 @@ public class Coach {
     public boolean canEat(String menu) {
         return !exceptionMenus.contains(menu) &&
                 !ateMenus.contains(menu);
+    }
+
+    public void clearExceptionMenus() {
+        exceptionMenus.clear();
     }
 
     public String getName() {

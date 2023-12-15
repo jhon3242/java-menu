@@ -11,4 +11,5 @@ public class ExceptionMessage {
 
     public static final String NUMBER_FORMAT = "숫자 형식이 아닙니다.";
     public static final String MENU_NOT_EXIST = "존재하지 않는 메뉴입니다.";
+    public static final String EXCEPTION_MENU_MAX_SIZE = "예외 메뉴는 최대 2개까지 입력 가능합니다.";
 }

@@ -26,10 +26,12 @@ public class Coaches {
         }
     }
 
-    public <T, R> void applyExceptionMenuToEach(Function<T, R> method) {
+    public <T, R> void addExceptionMenuToEach(Function<T, R> method) {
         coaches.forEach(coach -> {
             R result = method.apply((T) coach);
-            coach.addExceptionMenu((String) result);
+            List<String> menus = (List<String>) result;
+            coach.clearExceptionMenus(); // 이전 단계에서 에러가 발생했을수도 있어서 초기화
+            menus.forEach(coach::addExceptionMenu);
         });
     }
 

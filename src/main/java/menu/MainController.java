@@ -1,5 +1,6 @@
 package menu;
 
+import java.util.List;
 import menu.message.ViewMessage;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -12,7 +13,8 @@ public class MainController {
         Coaches coaches = initCoaches();
 
         // 못먹는 메뉴 입력
-        coaches.applyExceptionMenuToEach(MainController::initExceptionMenu);
+        coaches.addExceptionMenuToEach(MainController::initExceptionMenu);
+        System.out.println(coaches);
 
         // 추천 결과
     }
@@ -27,11 +29,10 @@ public class MainController {
         }
     }
 
-    public static String initExceptionMenu(Coach coach) {
+    public static List<String> initExceptionMenu(Coach coach) {
         try {
             String value = InputView.readCoachExceptionMenu(coach);
-            Menu.validateMenu(value);
-            return value;
+            return Converter.stringToMenuList(value);
         } catch (IllegalArgumentException exception) {
             OutputView.printException(exception);
             return initExceptionMenu(coach);
