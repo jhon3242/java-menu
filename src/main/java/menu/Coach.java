@@ -52,6 +52,10 @@ public class Coach {
         return name;
     }
 
+    public List<String> getRecommendMenus() {
+        return recommendMenus;
+    }
+
     @Override
     public String toString() {
         return "Coach{" +

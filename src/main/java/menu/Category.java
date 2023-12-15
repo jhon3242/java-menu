@@ -26,4 +26,8 @@ public enum Category {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.CATEGORY_NOT_EXIST));
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -42,6 +42,9 @@ public enum Menu {
     }
 
     public static void validateMenu(String menu) {
+        if (menu.isBlank()) {
+            return;
+        }
         boolean anyMatch = Arrays.stream(values())
                 .anyMatch(value -> value.menus.contains(menu));
         if (!anyMatch) {

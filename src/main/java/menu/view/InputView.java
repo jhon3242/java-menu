@@ -23,9 +23,7 @@ public class InputView {
 
     public static String readCoachExceptionMenu(Coach coach) {
         System.out.printf(ViewMessage.INPUT_EXCEPTION_MENU_FORMAT, coach.getName());
-        String value = Console.readLine().trim();
-        validateBlank(value);
-        return value;
+        return Console.readLine().trim();
     }
 
     private static void validateBlank(String value) {

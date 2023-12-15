@@ -1,6 +1,7 @@
 package menu;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import menu.message.ExceptionMessage;
@@ -35,6 +36,9 @@ public class Coaches {
         coaches.forEach(coach -> {
             R result = method.apply((T) coach);
             List<String> menus = (List<String>) result;
+            if (menus.isEmpty()) {
+                return;
+            }
             coach.clearExceptionMenus(); // 이전 단계에서 에러가 발생했을수도 있어서 초기화
             menus.forEach(coach::addExceptionMenu);
         });
@@ -64,5 +68,13 @@ public class Coaches {
             String randomMenu = Menu.getValidRandomMenu(coach, randomCategory);
             coach.addAteMenu(randomMenu);
         });
+    }
+
+    public List<Category> getRecommendCategories() {
+        return new ArrayList<>(recommendCategories);
+    }
+
+    public List<Coach> getCoaches() {
+        return new ArrayList<>(coaches);
     }
 }
