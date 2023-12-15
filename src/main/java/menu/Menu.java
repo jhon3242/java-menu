@@ -13,7 +13,6 @@ public enum Menu {
     ASIAN(Category.ASIAN, List.of("팟타이", "카오 팟", "나시고렝", "파인애플 볶음밥", "쌀국수", "똠얌꿍", "반미", "월남쌈", "분짜")),
     WESTERN(Category.WESTERN, List.of("라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"));
 
-
     private Category category;
     private List<String> menus;
 
@@ -42,4 +41,11 @@ public enum Menu {
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.CATEGORY_NOT_EXIST));
     }
 
+    public static void validateMenu(String menu) {
+        boolean anyMatch = Arrays.stream(values())
+                .anyMatch(value -> value.menus.contains(menu));
+        if (!anyMatch) {
+            throw new IllegalArgumentException(ExceptionMessage.MENU_NOT_EXIST);
+        }
+    }
 }

@@ -10,4 +10,5 @@ public class ExceptionMessage {
     public static final String COACH_NAME_LENGTH = "코치 이름은 2글자 이상 4글자 이하로 입력해야 합니다.";
 
     public static final String NUMBER_FORMAT = "숫자 형식이 아닙니다.";
+    public static final String MENU_NOT_EXIST = "존재하지 않는 메뉴입니다.";
 }

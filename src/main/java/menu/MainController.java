@@ -13,6 +13,7 @@ public class MainController {
 
         // 못먹는 메뉴 입력
 
+
         // 추천 결과
     }
 
@@ -23,6 +24,17 @@ public class MainController {
         } catch (IllegalArgumentException exception) {
             OutputView.printException(exception);
             return initCoaches();
+        }
+    }
+
+    public static String initExceptionMenu(Coach coach) {
+        try {
+            String value = InputView.readCoachExceptionMenu(coach);
+            Menu.validateMenu(value);
+            return value;
+        } catch (IllegalArgumentException exception) {
+            OutputView.printException(exception);
+            return initExceptionMenu(coach);
         }
     }
 }
