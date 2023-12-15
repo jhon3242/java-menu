@@ -1,12 +1,8 @@
 package menu;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -21,7 +17,7 @@ class MenuTest {
         coach.addExceptionMenu("우동");
         coach.addAteMenu("미소시루");
 
-        String randomMenu = Menu.getRandomMenu(coach, Category.JAPANESE);
+        String randomMenu = Menu.getValidRandomMenu(coach, Category.JAPANESE);
         Assertions.assertThat(randomMenu).isNotEqualTo("규동");
         Assertions.assertThat(randomMenu).isNotEqualTo("우동");
         Assertions.assertThat(randomMenu).isNotEqualTo("미소시루");

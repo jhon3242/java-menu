@@ -22,7 +22,7 @@ public enum Menu {
     }
 
     // 못먹는 메뉴인 경우 이전 리스트에서 다시 섞어야해서 여기서 검증
-    public static String getRandomMenu(Coach coach, Category category) {
+    public static String getValidRandomMenu(Coach coach, Category category) {
         Menu pick = findByCategory(category);
         List<String> pickMenus = new ArrayList<>(pick.menus);
         while (true) {

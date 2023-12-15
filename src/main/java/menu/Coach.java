@@ -8,13 +8,13 @@ public class Coach {
     public static final int EXCEPTION_MENU_MAX_SIZE = 2;
     private final String name;
     private final List<String> exceptionMenus;
-    private final List<String> ateMenus;
+    private final List<String> recommendMenus;
 
     public Coach(String name) {
         validate(name);
         this.name = name;
         this.exceptionMenus = new ArrayList<>();
-        this.ateMenus = new ArrayList<>();
+        this.recommendMenus = new ArrayList<>();
     }
 
     private void validate(String name) {
@@ -36,12 +36,12 @@ public class Coach {
 
     // TODO 이전에 존재하는 메뉴인지 검증 필요
     public void addAteMenu(String menu) {
-        ateMenus.add(menu);
+        recommendMenus.add(menu);
     }
 
     public boolean canEat(String menu) {
         return !exceptionMenus.contains(menu) &&
-                !ateMenus.contains(menu);
+                !recommendMenus.contains(menu);
     }
 
     public void clearExceptionMenus() {
@@ -57,7 +57,7 @@ public class Coach {
         return "Coach{" +
                 "name='" + name + '\'' +
                 ", exceptionMenus=" + exceptionMenus +
-                ", ateMenus=" + ateMenus +
+                ", ateMenus=" + recommendMenus +
                 '}';
     }
 }

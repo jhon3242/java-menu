@@ -14,9 +14,16 @@ public class MainController {
 
         // 못먹는 메뉴 입력
         coaches.addExceptionMenuToEach(MainController::initExceptionMenu);
-        System.out.println(coaches);
 
         // 추천 결과
+        while (coaches.needRecommend()) {
+            Category randomCategory = Category.getRandomCategory();
+            if (coaches.isAvailableCategory(randomCategory)) {
+                coaches.recommendMenu(randomCategory);
+            }
+        }
+        System.out.println(coaches);
+
     }
 
     public static Coaches initCoaches() {
